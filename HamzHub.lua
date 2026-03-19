@@ -108,10 +108,8 @@ MainTab:CreateToggle({
         getgenv().Blati = Value
         if Value then
             startBlati()
-            local args = {
-	"bd4238ec-6bbc-4523-8c63-a17356e1f130"
-}
-game:GetService("ReplicatedStorage"):WaitForChild("FishUI"):WaitForChild("ToServer"):WaitForChild("ToggleFavorite"):FireServer(unpack(args))
+            local args = {"bd4238ec-6bbc-4523-8c63-a17356e1f130"}
+            game:GetService("ReplicatedStorage"):WaitForChild("FishUI"):WaitForChild("ToServer"):WaitForChild("ToggleFavorite"):FireServer(unpack(args))
             local backpackTool = player.Backpack:FindFirstChildOfClass("Tool")
             if backpackTool then backpackTool.Parent = player.Character end
         else
@@ -159,10 +157,8 @@ MainTab:CreateToggle({
         getgenv().ForceSecret = Value
         if Value then
             startForceSecret()
-            local args = {
-	"bd4238ec-6bbc-4523-8c63-a17356e1f130"
-}
-game:GetService("ReplicatedStorage"):WaitForChild("FishUI"):WaitForChild("ToServer"):WaitForChild("ToggleFavorite"):FireServer(unpack(args))
+            local args = {"bd4238ec-6bbc-4523-8c63-a17356e1f130"}
+            game:GetService("ReplicatedStorage"):WaitForChild("FishUI"):WaitForChild("ToServer"):WaitForChild("ToggleFavorite"):FireServer(unpack(args))
             local backpackTool = player.Backpack:FindFirstChildOfClass("Tool")
             if backpackTool then backpackTool.Parent = player.Character end
         else
@@ -277,6 +273,7 @@ ShopTab:CreateToggle({
     end,
 })
 
+-- === FITUR BARU BUY ROD (sesuai request lu) ===
 ShopTab:CreateDropdown({
     Name = "Buy Rod",
     Options = {"PINKYS", "SAMURAI", "DESTROYER", "GALAXY", "ENTROPY"},
@@ -286,10 +283,9 @@ ShopTab:CreateDropdown({
     Callback = function(CurrentOption)
         local selected = CurrentOption[1]
         if selected and selected \~= "" then
-            local args = {
-                selected
-            }
+            local args = {selected}
             game:GetService("ReplicatedStorage"):WaitForChild("RodShop"):WaitForChild("ToServer"):WaitForChild("PurchaseRod"):FireServer(unpack(args))
+            print("✅ Rod " .. selected .. " berhasil dibeli otomatis!")
         end
     end,
 })
@@ -374,4 +370,4 @@ local autoSellTimerLoop = task.spawn(function()
     end
 end)
 
-print("🎉 HAMZHUB GUI KEREN udah muncul bro! Tab MAIN & PLAYER siap. Cast manual 1x dulu biar Blati nyala. Gas polll 🔥")
+print("🎉 HAMZHUB GUI KEREN udah muncul bro! Tab MAIN & PLAYER siap. Cast manual 1x dulu biar Blati nyala. Buy Rod udah ada di SHOP tab 🔥")
