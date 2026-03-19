@@ -277,6 +277,23 @@ ShopTab:CreateToggle({
     end,
 })
 
+ShopTab:CreateDropdown({
+    Name = "Buy Rod",
+    Options = {"PINKYS", "SAMURAI", "DESTROYER", "GALAXY", "ENTROPY"},
+    CurrentOption = {""},
+    MultipleOptions = false,
+    Flag = "BuyRodFlag",
+    Callback = function(CurrentOption)
+        local selected = CurrentOption[1]
+        if selected and selected \~= "" then
+            local args = {
+                selected
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("RodShop"):WaitForChild("ToServer"):WaitForChild("PurchaseRod"):FireServer(unpack(args))
+        end
+    end,
+})
+
 local TeleportTab = Window:CreateTab("TELEPORT", 4483362458)
 local teleportSection = TeleportTab:CreateSection("TELEPORT PULAU")
 
