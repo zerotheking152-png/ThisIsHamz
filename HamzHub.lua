@@ -55,7 +55,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
     Name = "HamzHub",
     LoadingTitle = "HamzHub Is Loading",
-    LoadingSubtitle = "",
+    LoadingSubtitle = "Mobile Version",
     ShowText = "HamzHub",
     Theme = "Default",
     ToggleUIKeybind = "K",
@@ -66,6 +66,8 @@ local Window = Rayfield:CreateWindow({
 
 local MainTab = Window:CreateTab("MAIN", 4483362458)
 local PlayerTab = Window:CreateTab("PLAYER", 4483362458)
+local ShopTab = Window:CreateTab("SHOP", 4483362458)
+local TeleportTab = Window:CreateTab("TELEPORT", 4483362458)
 
 MainTab:CreateLabel("MANCING MANUAL 1X BARU IDUPIN BLATI")
 
@@ -234,8 +236,6 @@ PlayerTab:CreateInput({
     end,
 })
 
-local ShopTab = Window:CreateTab("SHOP", 4483362458)
-
 ShopTab:CreateDropdown({
     Name = "Select Option",
     Options = {"Count", "Second"},
@@ -273,7 +273,6 @@ ShopTab:CreateToggle({
     end,
 })
 
--- === FITUR BARU BUY ROD (sesuai request lu) ===
 ShopTab:CreateDropdown({
     Name = "Buy Rod",
     Options = {"PINKYS", "SAMURAI", "DESTROYER", "GALAXY", "ENTROPY"},
@@ -285,12 +284,10 @@ ShopTab:CreateDropdown({
         if selected and selected \~= "" then
             local args = {selected}
             game:GetService("ReplicatedStorage"):WaitForChild("RodShop"):WaitForChild("ToServer"):WaitForChild("PurchaseRod"):FireServer(unpack(args))
-            print("✅ Rod " .. selected .. " berhasil dibeli otomatis!")
         end
     end,
 })
 
-local TeleportTab = Window:CreateTab("TELEPORT", 4483362458)
 local teleportSection = TeleportTab:CreateSection("TELEPORT PULAU")
 
 TeleportTab:CreateDropdown({
@@ -370,4 +367,4 @@ local autoSellTimerLoop = task.spawn(function()
     end
 end)
 
-print("🎉 HAMZHUB GUI KEREN udah muncul bro! Tab MAIN & PLAYER siap. Cast manual 1x dulu biar Blati nyala. Buy Rod udah ada di SHOP tab 🔥")
+print("🎉 HAMZHUB GUI RAYFIELD (PERFECT BUAT HP/MOBILE) udah muncul bro! Press K buat buka/tutup GUI utama. Semua fitur 100% sama, Buy Rod ada di SHOP tab. Gas polll di HP 🔥")
